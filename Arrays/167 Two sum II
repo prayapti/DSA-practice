@@ -1,0 +1,26 @@
+// ✅ LeetCode 167. Two Sum II - Input Array Is Sorted (Easy)
+// 🔗 https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+// 📂 Topic: Two Pointers
+// ⏱ Time: O(n), 🗃 Space: O(1)
+
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length - 1;
+
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+
+            if (sum == target) {
+                // Return 1-based indices as per the problem
+                return new int[] { left + 1, right + 1 };
+            } else if (sum < target) {
+                left++;  // Need a bigger number
+            } else {
+                right--; // Need a smaller number
+            }
+        }
+
+        return null; // Not needed (problem guarantees a solution)
+    }
+}
